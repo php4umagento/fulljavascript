@@ -31,7 +31,7 @@ async function transferFiles(filePaths) {
   const wtClient = await createWTClient(process.env.WETRANSFER);
 
   const transfer = await wtClient.transfer.create({
-    message: 'My very first transfer!',
+    message: 'Data Structures and Algorithms in JavaScript!',
     files,
   });
 
