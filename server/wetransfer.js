@@ -1,10 +1,6 @@
 const createWTClient = require('@wetransfer/js-sdk');
 const fs = require('fs');
 
-
-
-// console.log(process.env.WETRANSFER)
-
 // Create a promise-based function to read files.
 function readFile(path) {
   return new Promise((resolve, reject) => {
@@ -39,7 +35,7 @@ async function transferFiles(filePaths) {
     files,
   });
 
-  console.log(transfer.url); // https://we.tl/t-Sa7dYYlOdF
+  console.log(transfer.url); // https://we.tl/t-t2GQSI14ck
 }
 
 // This is variable, and will depend on your application.
