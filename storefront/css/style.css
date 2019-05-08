@@ -74,9 +74,16 @@ h1 {
   padding: 8px 12px;
   font-size: 1em;
 
-  border: 1px solid white;
-  background-color: #FFCC00;
+  /* border: 1px solid white; */
+  /* background-color: #FFCC00; */
   color: #333;
+
+  background-color: #ffc579;
+  background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
+  border: 1px solid #ffad41;
+  /* text-shadow: -1px -1px 0 rgba(0,0,0,0.3); */
+
+
 
   /* background: var(--btn-color-light);
   color: var(--btn-font-color);
@@ -97,3 +104,13 @@ pre {
 pre {
   border-left: 2px solid #69c;
 } */
+
+dt {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+dl {
+  text-align: justify;
+}
