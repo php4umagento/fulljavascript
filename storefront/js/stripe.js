@@ -1,8 +1,6 @@
 const stripe = Stripe('pk_test_RUW6xxFOkCVI4NDV2pGD7Sbr');
 
-const checkoutButton = document.getElementById('checkout-button-sku_F1INse7ZB79EZ9');
-
-checkoutButton.addEventListener('click', () => {
+function checkout() {
   // When the customer clicks on the button, redirect
   // them to Checkout.
   stripe.redirectToCheckout({
@@ -16,13 +14,17 @@ checkoutButton.addEventListener('click', () => {
     // tab between form submission and the redirect.
     successUrl: 'https://adrianmejia.com/success',
     cancelUrl: 'https://adrianmejia.com/canceled',
-  })
-    .then((result) => {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        const displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-});
+  }).then((result) => {
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer.
+      const displayError = document.getElementById('error-message');
+      displayError.textContent = result.error.message;
+    }
+  });
+}
+
+// ES6
+const elements = document.getElementsByClassName('checkout-button-sku_F1INse7ZB79EZ9');
+Array.from(elements).forEach(el => el.addEventListener('click', checkout));
+
