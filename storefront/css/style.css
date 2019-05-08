@@ -114,3 +114,12 @@ dt {
 dl {
   text-align: justify;
 }
+
+.book-title {
+  margin-bottom: 0;
+}
+
+.book-author {
+  font-style: italic;
+  margin-top: 0;
+}

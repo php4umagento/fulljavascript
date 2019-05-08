@@ -1,6 +1,7 @@
 const stripe = Stripe('pk_test_RUW6xxFOkCVI4NDV2pGD7Sbr');
 
 const checkoutButton = document.getElementById('checkout-button-sku_F1INse7ZB79EZ9');
+
 checkoutButton.addEventListener('click', () => {
   // When the customer clicks on the button, redirect
   // them to Checkout.
@@ -20,7 +21,7 @@ checkoutButton.addEventListener('click', () => {
       if (result.error) {
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
+        const displayError = document.getElementById('error-message');
         displayError.textContent = result.error.message;
       }
     });
