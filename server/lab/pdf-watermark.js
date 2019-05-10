@@ -142,4 +142,4 @@ function modifyPdf(input, output) {
 
 // createNewPdf('input.pdf');
 // modifyPdf('input.pdf', 'output.pdf');
-modifyPdf('../dist/book.pdf', '../dist/output.pdf');
+// modifyPdf('../../dist/book.pdf', '../../output.pdf');
