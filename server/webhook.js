@@ -17,3 +17,8 @@ app.post('/webhook', async (req, res) => {
 
   res.sendStatus(200);
 });
+
+// all other routes
+app.route('*', async (req, res) => {
+  res.json({ ok: 1 });
+});
