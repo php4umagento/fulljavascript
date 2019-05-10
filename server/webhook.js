@@ -13,7 +13,7 @@ app.listen(port, () => {
 app.post('/webhook', async (req, res) => {
   const event = req.body;
 
-  console.log(event);
+  console.log(JSON.stringify(event));
 
   res.sendStatus(200);
 });
