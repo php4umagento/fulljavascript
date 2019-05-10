@@ -75,8 +75,7 @@ function createNewPdf(name) {
 /*
  * Adds watermark on page 1 and half book
  */
-function modifyPdf(input, output) {
-  const email = 'adriansky@gmail.com';
+function modifyPdf(input, output, logoPath, email) {
   const opacity = 0.4;
   const color = '#919191';
 
@@ -84,7 +83,7 @@ function modifyPdf(input, output) {
   // console.log();
   const { metadata } = pdfDoc;
   const pages = Object.keys(metadata).length;
-  const middle = Math.floor(pages / 2);
+  const middle = Math.ceil(pages / 2);
   const { width, height } = metadata['1'];
 
   const x = width - 170;
@@ -103,7 +102,7 @@ function modifyPdf(input, output) {
     // .text('Add some texts to an existing pdf file', 150, 300)
     // .rectangle(20, 20, 40, 100)
     // .comment('Add 1st comment annotaion', 200, 300)
-    .image('../dist/logo.png', x, y, {
+    .image(logoPath, x, y, {
       align: 'left center',
       width: 30,
       keepAspectRatio: true,
@@ -122,7 +121,8 @@ function modifyPdf(input, output) {
       opacity,
     })
     .endPage()
-    // 4th page
+
+    // middle page
     .editPage(middle)
     .text('Sold to', x1, y1 + 50, {
       bold: true,
@@ -136,10 +136,11 @@ function modifyPdf(input, output) {
       opacity,
     })
     .endPage()
+
     // end and save
     .endPDF();
 }
 
-// createNewPdf('input.pdf');
-// modifyPdf('input.pdf', 'output.pdf');
+// createNewPdf('../../dist/input.pdf');
+// modifyPdf('../../dist/input.pdf', '../../dist/output.pdf', '../../dist/logo.png');
 // modifyPdf('../../dist/book.pdf', '../../output.pdf');
