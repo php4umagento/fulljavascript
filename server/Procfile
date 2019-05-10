@@ -1,1 +1,2 @@
-webhook: node server/webhook.js
+# heroku scale web=0 webhook=1
+webhook: node webhook.js
