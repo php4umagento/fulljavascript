@@ -2,12 +2,18 @@
 
 const axios = require('axios');
 const HummusRecipe = require('hummus-recipe');
-const sendgrid = require('@sendgrid/mail');
+const Mailgun = require('mailgun-js');
 const fs = require('fs');
+const path = require('path');
 const debug = require('debug')('server:process-pdf');
 
 const assetsUrl = 'https://circleci.com/api/v1.1/project/github/amejiarosario/dsa.js/latest/artifacts?filter=successful&branch=master';
 const assetFileName = d => /dsajs-algorithms-javascript-book-v/i.test(d);
+
+const mailgun = Mailgun({
+  apiKey: process.env.MAILGUN,
+  domain: process.env.MAILGUN_DOMAIN,
+});
 
 async function getLatestPdfUrl() {
   const response = await axios.get(assetsUrl);
@@ -104,8 +110,8 @@ function filePathToBuffer(path) {
   });
 }
 
-async function stampedPdfWithBuyerData({ pdfBuffer, email }) {
-  const outputPath = 'tmp/bookStamped.pdf';
+async function stampedPdfWithBuyerData({ pdfBuffer, email, fileName }) {
+  const outputPath = `tmp/${fileName}`;
   const logoPath = 'assets/logo.png';
 
   await fs.promises.mkdir('tmp', { recursive: true });
@@ -114,42 +120,36 @@ async function stampedPdfWithBuyerData({ pdfBuffer, email }) {
   return outputPath;
 }
 
-async function sendEmail({ stampedPdfPath, email, fileName }) {
-  sendgrid.setApiKey(process.env.SENDGRID);
+async function sendEmail({ stampedPdfPath, email }) {
+  const filepath1 = path.join(__dirname, stampedPdfPath);
 
-  const attachmentBuffer = await filePathToBuffer(stampedPdfPath);
-
-  const message = {
-    from: 'hi+dsajs@adrianmejia.com',
-    // replyTo: 'hello@adrianmejia.com',
+  const data = {
+    from: 'FullJavaScript <fulljavascript@mg.adrianmejia.com>',
+    // to: 'Adrian Mejia <adriansky@gmail.com>, admejiar@cisco.com, adrianmejia86do@yahoo.com',
     to: email,
-    // bcc: ['adrianmejia86@hotmail.com'],
-    templateId: 'd-fb87aa68af9e435383c3018b4e4a301f',
-    dynamic_template_data: {
-      downloadUrl: 'https://we.tl/t-t2GQSI14ck',
-    },
-    attachments: [
-      {
-        content: attachmentBuffer.toString('base64'),
-        filename: fileName,
-        type: 'application/pdf',
-        disposition: 'attachment',
-        // contentId: 'mytext',
-      },
-    ],
+    subject: 'You bought Data Structures and Algorithms in JavaScript!',
+    template: 'titlebody', // https://designmodo.com/postcards/app/
+    'h:X-Mailgun-Variables': JSON.stringify({
+      title: 'DSA.js Book',
+      body: 'Thanks for buying the Data Structure and Algorithms book. You can find it attached to this email.',
+    }),
+    attachment: [filepath1],
   };
 
-  sendgrid
-    .send(message)
-    .then(() => debug('Mail sent successfully'))
-    .catch(error => console.error(error.toString()));
+  return new Promise((resolve) => {
+    mailgun.messages().send(data, (error, body) => {
+      if (error) throw error;
+      debug('%o', body);
+      resolve(body);
+    });
+  });
 }
 
 async function sendPdfToBuyer(event) {
   const email = event.data.object.charges.data.map(d => d.billing_details.email);
   debug(`sendPdfToBuyer ${email}`);
 
-  debug(`Getting latest PDF url...`);
+  debug('Getting latest PDF url...');
   const pdfUrl = await getLatestPdfUrl();
   const fileName = pdfUrl.split('/').pop();
 
@@ -158,7 +158,7 @@ async function sendPdfToBuyer(event) {
   const pdfBuffer = await downloadPdf(pdfUrl);
 
   debug(`Stamping PDF size ${pdfBuffer.length}...`);
-  const stampedPdfPath = await stampedPdfWithBuyerData({ pdfBuffer, email });
+  const stampedPdfPath = await stampedPdfWithBuyerData({ pdfBuffer, email, fileName });
 
   debug(`Sending email to ${email}`);
   await sendEmail({ stampedPdfPath, email, fileName });

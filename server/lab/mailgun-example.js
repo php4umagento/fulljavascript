@@ -33,10 +33,14 @@ function sendEmailWithTemplate() {
 
 function sendEmailWithNiceTemplate() {
   const filepath1 = path.join(__dirname, '../tmp/bookStamped.pdf');
+  // const filepath1 = '../tmp/bookStamped.pdf';
+  console.log({filepath1});
+
   const data = {
     from: 'Mailgun Sandbox <postmaster@mg.adrianmejia.com>',
     // to: 'Adrian Mejia <adriansky@gmail.com>, admejiar@cisco.com, adrianmejia86do@yahoo.com',
     to: 'Adrian Mejia <adriansky@gmail.com>',
+    replyTo: 'adrianmejia86@hotmail.com',
     subject: 'Hello',
     template: 'titlebody', // https://designmodo.com/postcards/app/
     'h:X-Mailgun-Variables': JSON.stringify({
@@ -46,6 +50,7 @@ function sendEmailWithNiceTemplate() {
     attachment: [filepath1],
   };
   mailgun.messages().send(data, (error, body) => {
+    if (error) console.log(error);
     console.log(body);
   });
 }
@@ -85,4 +90,4 @@ function sendEmailWithAttachement() {
 // sendEmail('Adrian Mejia <adriansky@gmail.com>');
 // sendEmailWithTemplate();
 // sendEmailWithAttachement();
-// sendEmailWithNiceTemplate();
+sendEmailWithNiceTemplate();

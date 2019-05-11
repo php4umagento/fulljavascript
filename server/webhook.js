@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 app.listen(port, () => {
   console.log(`Listening for webhooks: http://localhost:${port}`);
+  debug(`http://localhost:${port}/webhook`);
 });
 
 app.post('/webhook', async (req, res) => {
