@@ -132,6 +132,7 @@ async function sendEmail({ stampedPdfPath, email }) {
     'h:X-Mailgun-Variables': JSON.stringify({
       title: 'DSA.js Book',
       body: 'Thanks for buying the Data Structure and Algorithms book. You can find it attached to this email.',
+      preheader: 'Here is your ebook',
     }),
     attachment: [filepath1],
   };
