@@ -9,8 +9,8 @@ function checkout() {
     // Note that it is not guaranteed your customers will be redirected to this
     // URL *100%* of the time, it's possible that they could e.g. close the
     // tab between form submission and the redirect.
-    successUrl: 'https://fulljavascript.com/success.html',
-    cancelUrl: 'https://fulljavascript.com',
+    successUrl: 'https://books.adrianmejia.com/success.html',
+    cancelUrl: 'https://books.adrianmejia.com',
   })
     .then((result) => {
       if (result.error) {
