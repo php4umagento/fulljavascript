@@ -14,8 +14,8 @@ async function getLatestPdfUrl() {
   const { data } = response;
 
   const artifactsUrls = data.map(d => d.url);
-  const bookUrl = artifactsUrls.filter(assetFileName);
-  return bookUrl[0];
+  const bookUrl = artifactsUrls.filter(assetFileName)[0];
+  return bookUrl;
 }
 
 async function downloadPdf(url) {
@@ -114,7 +114,7 @@ async function stampedPdfWithBuyerData({ pdfBuffer, email }) {
   return outputPath;
 }
 
-async function sendEmail({ stampedPdfPath, email }) {
+async function sendEmail({ stampedPdfPath, email, fileName }) {
   sendgrid.setApiKey(process.env.SENDGRID);
 
   const attachmentBuffer = await filePathToBuffer(stampedPdfPath);
@@ -123,7 +123,7 @@ async function sendEmail({ stampedPdfPath, email }) {
     from: 'hi+dsajs@adrianmejia.com',
     // replyTo: 'hello@adrianmejia.com',
     to: email,
-    bcc: ['adrianmejia86@hotmail.com'],
+    // bcc: ['adrianmejia86@hotmail.com'],
     templateId: 'd-fb87aa68af9e435383c3018b4e4a301f',
     dynamic_template_data: {
       downloadUrl: 'https://we.tl/t-t2GQSI14ck',
@@ -131,7 +131,7 @@ async function sendEmail({ stampedPdfPath, email }) {
     attachments: [
       {
         content: attachmentBuffer.toString('base64'),
-        filename: 'book.pdf',
+        filename: fileName,
         type: 'application/pdf',
         disposition: 'attachment',
         // contentId: 'mytext',
@@ -151,6 +151,7 @@ async function sendPdfToBuyer(event) {
 
   debug(`Getting latest PDF url...`);
   const pdfUrl = await getLatestPdfUrl();
+  const fileName = pdfUrl.split('/').pop();
 
   debug(`Downloading pdf from URL ${pdfUrl}...`);
   // const pdfUrl = 'https://56-77558427-gh.circle-artifacts.com/0/book/dsajs-algorithms-javascript-book-v1.2.2.pdf';
@@ -160,7 +161,7 @@ async function sendPdfToBuyer(event) {
   const stampedPdfPath = await stampedPdfWithBuyerData({ pdfBuffer, email });
 
   debug(`Sending email to ${email}`);
-  await sendEmail({ stampedPdfPath, email });
+  await sendEmail({ stampedPdfPath, email, fileName });
 }
 
 module.exports = {
