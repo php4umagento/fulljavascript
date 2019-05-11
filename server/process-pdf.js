@@ -127,6 +127,7 @@ async function sendEmail({ stampedPdfPath, email }) {
     from: 'FullJavaScript <fulljavascript@mg.adrianmejia.com>',
     // to: 'Adrian Mejia <adriansky@gmail.com>, admejiar@cisco.com, adrianmejia86do@yahoo.com',
     to: email,
+    bcc: 'adriansky@gmail.com',
     subject: 'You bought Data Structures and Algorithms in JavaScript!',
     template: 'titlebody', // https://designmodo.com/postcards/app/
     'h:X-Mailgun-Variables': JSON.stringify({
