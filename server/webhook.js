@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const debug = require('debug')('server:webhook');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,7 +13,8 @@ app.listen(port, () => {
 
 app.post('/webhook', async (req, res) => {
   const event = req.body;
-  console.log(JSON.stringify(event));
+  debug('Got event %o', event);
+
   res.sendStatus(200);
 
   if (event.type === 'payment_intent.succeeded') {

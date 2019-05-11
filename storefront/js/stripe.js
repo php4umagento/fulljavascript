@@ -12,8 +12,8 @@ function checkout() {
     // Note that it is not guaranteed your customers will be redirected to this
     // URL *100%* of the time, it's possible that they could e.g. close the
     // tab between form submission and the redirect.
-    successUrl: 'https://adrianmejia.com/success',
-    cancelUrl: 'https://adrianmejia.com/canceled',
+    successUrl: 'https://fulljavascript.netlify.com/success.html',
+    cancelUrl: 'https://fulljavascript.netlify.com',
   }).then((result) => {
     if (result.error) {
       // If `redirectToCheckout` fails due to a browser or network
