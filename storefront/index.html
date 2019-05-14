@@ -53,18 +53,29 @@
   </header>
 
   <main>
-    <article>
+    <!-- <article itemscope itemtype="http://schema.org/Product"> -->
+    <article itemscope itemtype="http://schema.org/Book" itemid="#record">
+      <link itemprop="additionalType" href="http://schema.org/Product"/>
       <!-- Book Image -->
       <figure style="position: relative;">
         <img
+          itemprop="image"
           class="checkout-button-sku_F1INse7ZB79EZ9"
           src="img/dsajs-cover-320h2.png"
           alt="Data Structures and Algorithms in JavaScript Book">
-          <span class="price-tag">$9.50</span>
+
+          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <span class="price-tag"><span
+              itemprop="priceCurrency" content="USD">$</span><span
+              itemprop="price" content="9.50">9.50</span>
+            </span>
+            <link itemprop="availability" href="http://schema.org/InStock" />
+            <link itemprop="url" href="https://ebooks.adrianmejia.com" />
+          </span>
       </figure>
 
-      <h1 class="book-title">Data Structures and Algorithms in JavaScript</h1>
-      <p class="book-author">by Adrian Mejia</p>
+      <h1 class="book-title" itemprop="name">Data Structures and Algorithms in JavaScript</h1>
+      <p class="book-author">by <span itemprop="author">Adrian Mejia</span></p>
 
       <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
       <div id="error-message"></div>
@@ -74,6 +85,8 @@
 
       <section>
         <p>Level up your software development career with this book!</p>
+
+        <p itemprop="description">This book explain classical Data Structures and Algorithms and how to implement them using JavaScript.</p>
 
         <p>You will learn how to write faster code and ace technical jobs interviews questions. It provides many
           examples and illustrations to make the learning experience as smooth as possible.</p>
