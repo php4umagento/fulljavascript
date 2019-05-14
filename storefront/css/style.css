@@ -127,3 +127,33 @@ dl {
 .checkout-button-sku_F1INse7ZB79EZ9 {
   cursor: pointer;
 }
+
+
+.price-tag {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 256px;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: bold;
+  padding: 12px 10px 12px 8px;
+  color: #614611;
+  background: #ffc579;
+  z-index: 1;
+  /* box-shadow: 0px 2px 3px grey; */
+}
+
+.price-tag:before {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 21px;
+  border-right-color: #ffc579;
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
