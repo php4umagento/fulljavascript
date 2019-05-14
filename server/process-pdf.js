@@ -124,7 +124,7 @@ async function sendEmail({ stampedPdfPath, email }) {
   const filepath1 = path.join(__dirname, stampedPdfPath);
 
   const data = {
-    from: 'FullJavaScript <fulljavascript@mg.adrianmejia.com>',
+    from: 'DSA.js eBook <dsa.js@mg.adrianmejia.com>',
     // to: 'Adrian Mejia <adriansky@gmail.com>, admejiar@cisco.com, adrianmejia86do@yahoo.com',
     to: email,
     bcc: 'adriansky@gmail.com',
