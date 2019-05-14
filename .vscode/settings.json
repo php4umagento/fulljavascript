@@ -6,5 +6,11 @@
     "markdown",
     "latex",
     "plaintext"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#215732",
+    "titleBar.inactiveBackground": "#21573299",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  }
 }
