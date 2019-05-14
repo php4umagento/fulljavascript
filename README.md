@@ -12,6 +12,12 @@ Contains plain static HTML/CSS/JS files.
 live-server storefront
 ```
 
+Deploying storefront changes:
+
+```
+git push origin production
+```
+
 ## Server
 
 Deploy to heroku:
