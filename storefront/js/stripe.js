@@ -1,6 +1,11 @@
 const stripe = Stripe('pk_live_XN1HL05hzvpj3UPR8Z1oqiCJ');
 
-function checkout() {
+function checkout(event) {
+  try {
+    gtag('event', 'checkout', { event_category: 'books', event_label: event.target.id });
+  } catch (error) {
+    console.warn(`Couldn't send event to GA ${error}`);
+  }
   // When the customer clicks on the button, redirect
   // them to Checkout.
   stripe.redirectToCheckout({
