@@ -7,7 +7,10 @@ const fs = require('fs');
 const path = require('path');
 const debug = require('debug')('server:process-pdf');
 
-const assetsUrl = 'https://circleci.com/api/v1.1/project/github/amejiarosario/dsa.js/latest/artifacts?filter=successful&branch=master';
+
+// get all the last builds
+const buildsUrl = 'https://circleci.com/api/v1.1/project/github/amejiarosario/dsa.js';
+const assetsUrl = `${buildsUrl}/latest/artifacts?filter=successful&branch=master`;
 const assetFileName = d => /dsajs-algorithms-javascript-book-v/i.test(d);
 
 const mailgun = Mailgun({
@@ -16,10 +19,21 @@ const mailgun = Mailgun({
 });
 
 async function getLatestPdfUrl() {
-  const response = await axios.get(assetsUrl);
-  const { data } = response;
+  // depending on the job (docs or build) order it might get the wrong one
+  // const response = await axios.get(assetsUrl);
 
-  const artifactsUrls = data.map(d => d.url);
+  // get all builds
+  const BuildsResponse = await axios.get(buildsUrl);
+
+  // find last successful master doc
+  const build = BuildsResponse.data.find(b => b.build_parameters.CIRCLE_JOB === 'docs' &&
+      b.branch === 'master' &&
+      b.status === 'success');
+
+  const buildNumber = build.build_num;
+
+  const response = await axios.get(`${buildsUrl}/${buildNumber}/artifacts`);
+  const artifactsUrls = response.data.map(d => d.url);
   const bookUrl = artifactsUrls.filter(assetFileName)[0];
   return bookUrl;
 }
@@ -170,8 +184,11 @@ module.exports = {
   sendPdfToBuyer,
 };
 
-
+//
 // Test
+//
+
+// getLatestPdfUrl().then(u => console.log(u));
 
 // sendPdfToBuyer({
 //   data: {
