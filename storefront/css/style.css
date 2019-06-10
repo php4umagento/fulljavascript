@@ -14,6 +14,7 @@ body {
   /* spacing */
   line-height: 1.5;
   padding: 4em;
+  padding-bottom: 8em;
 
   /* color and contrast */
   /* color: #555; */
@@ -174,6 +175,18 @@ dl {
 .author-image {
   width: 100%;
   max-width: 350px;
+}
+
+details {
+  margin-bottom: 20px;
+}
+
+details p {
+  font-style: italic;
+}
+
+summary {
+  font-weight: bold;
 }
 
 /* Bloquotes */
