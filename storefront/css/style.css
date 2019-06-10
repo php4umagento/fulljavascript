@@ -176,6 +176,20 @@ dl {
   max-width: 350px;
 }
 
+/* Bloquotes */
+
+blockquote {
+  margin: 0 auto;
+  padding: 1em;
+  border-left: 5px solid #999;
+}
+
+blockquote:nth-of-type(even) {
+  text-align: right;
+  border-left: none;
+  border-right: 5px solid #999;
+}
+
 /* Media Queries */
 
 /* Extra small devices (portrait phones, less than 576px)
