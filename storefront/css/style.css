@@ -13,7 +13,7 @@ body {
 
   /* spacing */
   line-height: 1.5;
-  padding: 4em 1em;
+  padding: 4em;
 
   /* color and contrast */
   /* color: #555; */
@@ -156,4 +156,59 @@ dl {
   position: absolute;
   top: 0;
   right: 100%;
+}
+
+.dark-bg {
+
+}
+
+/* .author-figure {
+  margin: 0;
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://adrianmejia.com/images/adrian-mejia-halfbody.png);
+  width: 100%;
+  height: 500px;
+} */
+
+.author-image {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Media Queries */
+
+/* Extra small devices (portrait phones, less than 576px)
+  No media query since this is the default */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .flex-container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .hero-text {
+    margin-left: 100px;
+  }
+
+  .author-image {
+    width: 500px;
+    float: left;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
