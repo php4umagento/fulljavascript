@@ -7,9 +7,11 @@ const fs = require('fs');
 const path = require('path');
 const debug = require('debug')('server:process-pdf');
 
+const repoName = 'dsa.js-data-structures-and-algorithms-in-javascript';
+
 
 // get all the last builds
-const buildsUrl = 'https://circleci.com/api/v1.1/project/github/amejiarosario/dsa.js';
+const buildsUrl = `https://circleci.com/api/v1.1/project/github/amejiarosario/${repoName}`;
 const assetsUrl = `${buildsUrl}/latest/artifacts?filter=successful&branch=master`;
 const assetFileName = d => /dsajs-algorithms-javascript-book-v/i.test(d);
 
