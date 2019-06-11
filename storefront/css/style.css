@@ -2,9 +2,14 @@
 /* @import 'https://fonts.googleapis.com/css?family=Century:300,400,500'; */
 
 body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
   /* Centering */
-  margin: 0 auto;
-  max-width: 50em;
+  /* margin: 0 auto; */
+  /* max-width: 50em; */
 
   /* fonts */
   font-family: "Helvetica", "Arial", sans-serif;
@@ -13,7 +18,7 @@ body {
 
   /* spacing */
   line-height: 1.5;
-  padding: 4em;
+  /* padding: 4em; */
   padding-bottom: 8em;
 
   /* color and contrast */
@@ -159,10 +164,6 @@ dl {
   right: 100%;
 }
 
-.dark-bg {
-
-}
-
 /* .author-figure {
   margin: 0;
   background-position: center;
@@ -187,6 +188,46 @@ details p {
 
 summary {
   font-weight: bold;
+}
+
+.dark-bg {
+  background-color: rgb(241,244,248);
+  width: 100%;
+}
+
+/* Layout */
+
+.hsection {
+  padding: 4em;
+}
+
+.hsection2 > * {
+  margin: 0 auto;
+  max-width: 50em;
+}
+
+.hsection .content {
+  margin: 0 auto;
+  max-width: 50em;
+}
+
+/*  */
+
+.container {
+  max-width: 1140px;
+  /* max-width: 50em; */
+  width: 100%;
+  padding: 4em;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
 }
 
 /* Bloquotes */
@@ -215,6 +256,15 @@ blockquote:nth-of-type(even) {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .flex-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .hero-text {
+    /* margin: auto; */
+  }
+
   .flex-container {
     display: flex;
     align-items: flex-start;
