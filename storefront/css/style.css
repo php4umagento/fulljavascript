@@ -19,7 +19,7 @@ main {
   /* spacing */
   line-height: 1.5;
   /* padding: 4em; */
-  padding-bottom: 8em;
+  /* padding-bottom: 8em; */
 
   /* color and contrast */
   /* color: #555; */
@@ -192,7 +192,7 @@ summary {
 
 .dark-bg {
   background-color: rgb(241,244,248);
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* Layout */
@@ -214,9 +214,9 @@ summary {
 /*  */
 
 .container {
-  max-width: 1140px;
-  /* max-width: 50em; */
-  width: 100%;
+  /* max-width: 1140px; */
+  max-width: 50em;
+  /* width: 100%; */
   padding: 4em;
   margin: 0 auto;
 }
