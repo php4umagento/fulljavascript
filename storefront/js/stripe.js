@@ -45,7 +45,17 @@ function checkout(event) {
   });
 }
 
-// ES6
-const elements = document.getElementsByClassName('checkout-button-sku_F1INse7ZB79EZ9');
-Array.from(elements).forEach(el => el.addEventListener('click', checkout));
+try {
+  // ES6
+  const elements = document.getElementsByClassName('checkout-button-sku_F1INse7ZB79EZ9');
+  Array.from(elements).forEach(el => el.addEventListener('click', checkout));
+
+  const faq = document.getElementsByTagName('details');
+  Array.from(faq).forEach(el => el.addEventListener('click', e => gtag('event', 'screen_view', {
+    screen_name: e.target.innerText,
+  })));
+} catch (error) {
+  // console.log(error);
+  gtag('event', 'exception', { description: error.message });
+}
 
