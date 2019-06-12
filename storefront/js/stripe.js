@@ -1,11 +1,24 @@
 const stripe = Stripe('pk_live_XN1HL05hzvpj3UPR8Z1oqiCJ');
 
-function checkout(event) {
+function sendGa(event) {
   try {
-    gtag('event', 'checkout', { event_category: 'books', event_label: event.target.id });
+    // gtag('event', 'buy_intent', { event_category: 'books', event_label: event.target.id });
+    gtag('event', 'begin_checkout', {
+      items: [{
+        name: 'DSA.js Book',
+        list_name: event.target.id,
+        category: 'Book',
+        quantity: 1,
+        price: '17.00',
+      }],
+    });
   } catch (error) {
     console.warn(`Couldn't send event to GA ${error}`);
   }
+}
+
+
+function checkout(event) {
   // When the customer clicks on the button, redirect
   // them to Checkout.
   stripe.redirectToCheckout({
@@ -16,15 +29,20 @@ function checkout(event) {
     // tab between form submission and the redirect.
     successUrl: 'https://books.adrianmejia.com/success.html',
     cancelUrl: 'https://books.adrianmejia.com',
-  })
-    .then((result) => {
-      if (result.error) {
+  }).then((result) => {
+    if (result.error) {
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer.
-        const displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
+      const displayError = document.getElementById('error-message');
+      displayError.textContent = result.error.message;
+      console.error(result.error);
+    } else {
+      sendGa(event, result);
+    }
+  }).catch((error) => {
+    console.warn(error);
+    gtag('event', 'exception', { description: error.message });
+  });
 }
 
 // ES6
