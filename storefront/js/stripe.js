@@ -9,7 +9,7 @@ function sendGa(event) {
         list_name: event.target.id,
         category: 'Book',
         quantity: 1,
-        price: '17.00',
+        price: '9.70',
       }],
     });
   } catch (error) {
