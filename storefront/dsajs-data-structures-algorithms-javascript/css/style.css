@@ -26,6 +26,16 @@ main {
   color: #566b78;
 }
 
+.display {
+  font-size: 2.5em;
+  line-height: 1.2;
+  font-weight: lighter;
+}
+
+.white {
+  /* color: white; */
+}
+
 h1,
 h2,
 strong {
@@ -84,8 +94,9 @@ h1 {
   /* background-color: #FFCC00; */
   color: #333;
 
-  background-color: #ffc579;
-  background-image: linear-gradient(to bottom, #ffc579, #fb9d23);
+  /* background-color: #ffc579; */
+  background-color: #FFCC02;
+  /* background-image: linear-gradient(to bottom, #ffc579, #fb9d23); */
   border: 1px solid #ffad41;
   /* text-shadow: -1px -1px 0 rgba(0,0,0,0.3); */
 
@@ -192,7 +203,20 @@ summary {
 
 .dark-bg {
   background-color: rgb(241,244,248);
+  /* https://www.sessions.edu/color-calculator/ */
+  /* background-color: #50e6df; */
   /* width: 100%; */
+}
+
+#intro {
+  /* background-image: url(/img/yellow-pattern.png); */
+  /* background-color: #FFCC02; */
+  background-image: url(/img/green-pattern.png);
+  background-color: #26FFF4;
+}
+
+#outro {
+  background-color: #26FFF4;
 }
 
 /* Layout */
