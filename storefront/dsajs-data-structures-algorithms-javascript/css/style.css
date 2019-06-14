@@ -213,10 +213,14 @@ summary {
   /* background-color: #FFCC02; */
   background-image: url(/img/green-pattern.png);
   background-color: #26FFF4;
+
+  /* color: black; */
+  color: #333;
 }
 
 #outro {
   background-color: #26FFF4;
+  color: #333;
 }
 
 /* Layout */
