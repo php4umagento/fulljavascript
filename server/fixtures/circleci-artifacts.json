@@ -1,0 +1,80 @@
+[
+  {
+    "path": "book/dsajs-algorithms-javascript-book-v1.3.0.epub",
+    "pretty_path": "book/dsajs-algorithms-javascript-book-v1.3.0.epub",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/dsajs-algorithms-javascript-book-v1.3.0.epub"
+  },
+  {
+    "path": "book/dsajs-algorithms-javascript-book-v1.3.0.html",
+    "pretty_path": "book/dsajs-algorithms-javascript-book-v1.3.0.html",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/dsajs-algorithms-javascript-book-v1.3.0.html"
+  },
+  {
+    "path": "book/dsajs-algorithms-javascript-book-v1.3.0.mobi",
+    "pretty_path": "book/dsajs-algorithms-javascript-book-v1.3.0.mobi",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/dsajs-algorithms-javascript-book-v1.3.0.mobi"
+  },
+  {
+    "path": "book/dsajs-algorithms-javascript-book-v1.3.0.pdf",
+    "pretty_path": "book/dsajs-algorithms-javascript-book-v1.3.0.pdf",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/dsajs-algorithms-javascript-book-v1.3.0.pdf"
+  },
+  {
+    "path": "book/dsajs.pdf",
+    "pretty_path": "book/dsajs.pdf",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/dsajs.pdf"
+  },
+  {
+    "path": "book/images/Find-the-largest-sum.png",
+    "pretty_path": "book/images/Find-the-largest-sum.png",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/images/Find-the-largest-sum.png"
+  },
+  {
+    "path": "book/images/Recursive-Fibonacci-call-tree-with-dp.png",
+    "pretty_path": "book/images/Recursive-Fibonacci-call-tree-with-dp.png",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/images/Recursive-Fibonacci-call-tree-with-dp.png"
+  },
+  {
+    "path": "book/images/Words-Permutations.png",
+    "pretty_path": "book/images/Words-Permutations.png",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/images/Words-Permutations.png"
+  },
+  {
+    "path": "book/images/recursive-fibonacci-call-tree.png",
+    "pretty_path": "book/images/recursive-fibonacci-call-tree.png",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/images/recursive-fibonacci-call-tree.png"
+  },
+  {
+    "path": "book/.asciidoctor/diagram/Find-the-largest-sum.png.cache",
+    "pretty_path": "book/.asciidoctor/diagram/Find-the-largest-sum.png.cache",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/.asciidoctor/diagram/Find-the-largest-sum.png.cache"
+  },
+  {
+    "path": "book/.asciidoctor/diagram/Recursive-Fibonacci-call-tree-with-dp.png.cache",
+    "pretty_path": "book/.asciidoctor/diagram/Recursive-Fibonacci-call-tree-with-dp.png.cache",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/.asciidoctor/diagram/Recursive-Fibonacci-call-tree-with-dp.png.cache"
+  },
+  {
+    "path": "book/.asciidoctor/diagram/Words-Permutations.png.cache",
+    "pretty_path": "book/.asciidoctor/diagram/Words-Permutations.png.cache",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/.asciidoctor/diagram/Words-Permutations.png.cache"
+  },
+  {
+    "path": "book/.asciidoctor/diagram/recursive-fibonacci-call-tree.png.cache",
+    "pretty_path": "book/.asciidoctor/diagram/recursive-fibonacci-call-tree.png.cache",
+    "node_index": 0,
+    "url": "https://circle-artifacts.com/0/book/.asciidoctor/diagram/recursive-fibonacci-call-tree.png.cache"
+  }
+]

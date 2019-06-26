@@ -1,0 +1,161 @@
+{
+  "object": "event",
+  "host": "127.0.0.1",
+  "@version": "1",
+  "@timestamp": "2019-06-20T15:28:46.153Z",
+  "headers": {
+    "cache_control": "no-cache",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": "4676",
+    "request_method": "POST",
+    "http_user_agent": "Stripe/1.0 (+https://stripe.com/docs/webhooks)",
+    "http_accept": "*/*; q=0.5, application/xml",
+    "request_path": "/",
+    "connection": "upgrade",
+    "stripe_signature": "t=1561044525,v1=f64471e7d2085661c241ae901f7fa2ee58e741a715275b40e0abcbc4cdcdc130",
+    "http_version": "HTTP/1.1",
+    "http_host": "cryptomarketstatus.com"
+  },
+  "data": {
+    "object": {
+      "amount_capturable": 0,
+      "amount_received": 970,
+      "cancellation_reason": null,
+      "currency": "usd",
+      "payment_method_types": [
+        "card"
+      ],
+      "status": "succeeded",
+      "statement_descriptor": null,
+      "livemode": true,
+      "id": "pi_1EnSAlDR73KArAY1411lUqYH",
+      "last_payment_error": null,
+      "created": 1561044455,
+      "next_action": null,
+      "review": null,
+      "on_behalf_of": null,
+      "source": null,
+      "transfer_group": null,
+      "payment_method": "pm_1EnSBrDR73KArAY1BJ0kmyxx",
+      "invoice": null,
+      "application": null,
+      "application_fee_amount": null,
+      "description": null,
+      "capture_method": "automatic",
+      "receipt_email": null,
+      "shipping": null,
+      "customer": "cus_FI2GpBabtaRJgn",
+      "charges": {
+        "data": [
+          {
+            "amount_refunded": 0,
+            "currency": "usd",
+            "failure_message": null,
+            "destination": null,
+            "payment_method_details": {
+              "type": "card",
+              "card": {
+                "country": "US",
+                "exp_year": 2022,
+                "funding": "debit",
+                "three_d_secure": null,
+                "brand": "visa",
+                "exp_month": 2,
+                "wallet": null,
+                "last4": "9689",
+                "checks": {
+                  "address_line1_check": null,
+                  "address_postal_code_check": "pass",
+                  "cvc_check": "pass"
+                },
+                "fingerprint": "BKUcKoGZw7ZrOt0S"
+              }
+            },
+            "statement_descriptor": null,
+            "status": "succeeded",
+            "livemode": true,
+            "id": "ch_1EnSBsDR73KArAY1r0w6oDF8",
+            "captured": true,
+            "created": 1561044524,
+            "order": null,
+            "receipt_number": null,
+            "on_behalf_of": null,
+            "review": null,
+            "source": null,
+            "transfer_group": null,
+            "payment_method": "pm_1EnSBrDR73KArAY1BJ0kmyxx",
+            "refunded": false,
+            "invoice": null,
+            "application": null,
+            "application_fee_amount": null,
+            "description": null,
+            "source_transfer": null,
+            "outcome": {
+              "risk_level": "normal",
+              "type": "authorized",
+              "seller_message": "Payment complete.",
+              "reason": null,
+              "network_status": "approved_by_network"
+            },
+            "paid": true,
+            "billing_details": {
+              "email": "john.doe+dsajs@fulljavascript.com",
+              "name": "John Doe",
+              "phone": null,
+              "address": {
+                "country": "US",
+                "city": null,
+                "line2": null,
+                "postal_code": "95112",
+                "line1": null,
+                "state": null
+              }
+            },
+            "receipt_email": null,
+            "receipt_url": "https://pay.stripe.com/receipts/acct_16a3CsDR73KArAY1/ch_1EnSBsDR73KArAY1r0w6oDF8/rcpt_FI2GakOUMtlt0barrxOozBbTDdyvVAN",
+            "customer": "cus_FI2GpBabtaRJgn",
+            "refunds": {
+              "data": [],
+              "total_count": 0,
+              "has_more": false,
+              "url": "/v1/charges/ch_1EnSBsDR73KArAY1r0w6oDF8/refunds",
+              "object": "list"
+            },
+            "shipping": null,
+            "amount": 970,
+            "fraud_details": {},
+            "failure_code": null,
+            "dispute": null,
+            "metadata": {},
+            "transfer_data": null,
+            "balance_transaction": "txn_1EnSBtDR73KArAY1XduhwaIH",
+            "payment_intent": "pi_1EnSAlDR73KArAY1411lUqYH",
+            "application_fee": null,
+            "object": "charge"
+          }
+        ],
+        "total_count": 1,
+        "has_more": false,
+        "url": "/v1/charges?payment_intent=pi_1EnSAlDR73KArAY1411lUqYH",
+        "object": "list"
+      },
+      "amount": 970,
+      "client_secret": "pi_1EnSAlDR73KArAY1411lUqYH_secret_tJL1cQfNrbqmEPA18SeWLOwDC",
+      "confirmation_method": "automatic",
+      "metadata": {},
+      "transfer_data": null,
+      "canceled_at": null,
+      "object": "payment_intent"
+    }
+  },
+  "livemode": true,
+  "id": "evt_1EnSBtDR73KArAY1ha6ZcugA",
+  "created": 1561044525,
+  "type": "payment_intent.succeeded",
+  "pending_webhooks": 2,
+  "api_version": "2019-03-14",
+  "request": {
+    "id": "req_4xP0hjFrkfPbno",
+    "idempotency_key": null
+  }
+}
