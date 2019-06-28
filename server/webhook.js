@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const debug = require('debug')('server:webhook');
 
+const { sendArtifacts } = require('./src/send-artifacts');
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -20,11 +22,7 @@ app.post('/webhook', async (req, res) => {
 
   if (event.type === 'payment_intent.succeeded') {
     // TODO: send event to RabbitMQ to further processing
-
-    // FIXME: stop processing request here!
-    // Don't want to block it with long processing stuff.
-    const { sendPdfToBuyer } = require('./process-pdf');
-    sendPdfToBuyer(event);
+    sendArtifacts(event);
   }
 });
 

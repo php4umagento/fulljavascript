@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 const axios = require('axios');
 
 const s = require('./send-artifacts');
@@ -35,9 +38,22 @@ describe('Send Artifacts', () => {
   });
 
   describe('#downloadFiles', () => {
-    it('should download files with name, size, content', () => {
-      expect(s.downloadFiles([file])).toEqual()
+    it('should download files with name, size, content', async () => {
+      const url = 'https://circle-artifacts.com/0/book/dsajs-algorithms-javascript-book-v1.3.0.pdf';
+      const data = new ArrayBuffer(123);
+
+      axios.get
+        .mockResolvedValue({
+          config: { url },
+          data,
+        });
+      expect(await s.downloadFiles([url])).toEqual([{
+        name: 'dsajs-algorithms-javascript-book-v1.3.0.pdf',
+        content: Buffer.from(data),
+        size: 123,
+      }]);
     });
   });
+
 });
 
