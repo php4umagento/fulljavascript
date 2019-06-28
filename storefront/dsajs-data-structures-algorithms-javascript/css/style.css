@@ -275,6 +275,18 @@ summary {
   text-align: center;
 }
 
+.text-muted {
+  color: #616161;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+img {
+  max-width: 100%;
+}
+
 .icon {
   font-size: 50px;
 }
