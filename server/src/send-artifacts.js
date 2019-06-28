@@ -13,7 +13,7 @@ function getEmail(event) {
 }
 
 async function getArtifactsUrls(regex) {
-  const repoName = 'dsa.js-data-structures-and-algorithms-in-javascript';
+  const repoName = 'dsa.js-data-structures-algorithms-javascript';
   // get all the last builds
   const buildsUrl = `https://circleci.com/api/v1.1/project/github/amejiarosario/${repoName}`;
   const pattern = str => regex.test(str);
