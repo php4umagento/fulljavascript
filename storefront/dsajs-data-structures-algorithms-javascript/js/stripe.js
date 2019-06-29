@@ -19,6 +19,7 @@ function sendGa(event) {
 
 
 function checkout(event) {
+  sendGa(event);
   // When the customer clicks on the button, redirect
   // them to Checkout.
   stripe.redirectToCheckout({
@@ -36,11 +37,9 @@ function checkout(event) {
       const displayError = document.getElementById('error-message');
       displayError.textContent = result.error.message;
       console.error(result.error);
-    } else {
-      sendGa(event, result);
     }
   }).catch((error) => {
-    console.warn(error);
+    console.warn('logging exception with stripe', error);
     gtag('event', 'exception', { description: error.message });
   });
 }
