@@ -57,7 +57,7 @@ h1 {
 } */
 
 :root {
-  --btn-font-color: #fff;
+  /* --btn-font-color: #fff; */
 
   /* --btn-border-color: #9d2e65;
   --btn-color-dark: #d16098;
@@ -68,9 +68,9 @@ h1 {
   --btn-color-dark: #CB9F00;
   --btn-color-light: #FFCC00; */
 
-  --btn-border-color: #B4AA99;
-  --btn-color-dark: #4D4637;
-  --btn-color-light: #FFCC00;
+  /* --btn-border-color: #B4AA99; */
+  /* --btn-color-dark: #4D4637; */
+  /* --btn-color-light: #FFCC00; */
 }
 
 .btn-primary {
